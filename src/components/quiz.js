@@ -4,19 +4,18 @@ import Ques from './ques'
 function Quiz() {
 
     const [allQtn,setAllQtn] = React.useState([]);
-    const [marks,setMarks] = React.useState(Array(10));
-
-
+    const [marks,setMarks] = React.useState([0,0,0,0,0,0,0,0,0,0,0]);
+    const [temp,setTemp] = React.useState("");
+    const [temp2,setTemp2] = React.useState("");
     const url = "https://opentdb.com/api.php?amount=10&category=19&difficulty=medium&type=multiple&encode=base64";
     React.useEffect(() => {
         fetch(url)
         .then(res => res.json())
         .then(data => setAllQtn(data))
-    },[url])
+    },[temp])
 
     
     function b64DecodeUnicode(str) {
-        // Going backwards: from bytestream, to percent-encoding, to original string.
         return decodeURIComponent(atob(str).split('').map(function(c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
@@ -32,18 +31,30 @@ function Quiz() {
         let k = event.target.getAttribute("name");
         if(dt2[k] != undefined)
         {
-            marks[k] = (event.target.getAttribute("value") === b64DecodeUnicode(dt2[k].correct_answer)) ? 1 : -1;
-            
+            if(marks[k] == 1)
+            {
+                marks[10]--;
+            }
+            marks[k] = (event.target.getAttribute("value") === b64DecodeUnicode(dt2[k].correct_answer)) ? 1 : 0;
+            marks[10] = marks[10] + marks[k];
+            console.log(Array.from(marks));
         }
-        //console.log(marks[k]);
-        //console.log(event.target.getAttribute("name"));
-         //console.log(b64DecodeUnicode(dt2[0].correct_answer));
     }
     function checkAnswer()
         {
-            console.log(Array.from(marks))
+            setTemp2((Math.random()*100).toString());
+            var page = document.getElementById("quiz-sheet");
+            page.classList.toggle("blur");
+            var popup = document.getElementById("popup");
+            popup.classList.toggle("active");
+            
         }
-
+    function reload()
+    {
+        setTemp((Math.random()*100).toString());
+        setMarks([0,0,0,0,0,0,0,0,0,0,0]);
+        setAllQtn([]);
+    }
     
     dt2 = dt2.map((que) => 
     (
@@ -72,26 +83,23 @@ function Quiz() {
                 correct_answer = {que.correct_answer}
                 option = {que.option}
                 option_select = {option_select}
-                // stAns = {stAns}
-                // setStAns = {setStAns}
             />
         ));
 
         
         return (
-            <div className = "quiz--pane">
-                <div>
+            <div className = "quiz-p2" >
+                <div className = "quiz-p1" id = "quiz-sheet">
                     {quest}
+                </div>
+                <div id = "popup" >
+                    <h2 className = {temp2}>You scored {marks[10]}/10 correct answers</h2>
+                    <button onClick={reload}>Play again</button>
                 </div>
                 <button className = "check-answer" onClick={checkAnswer}>Check answers</button>
             </div>
         )
     }
-    return (
-        <div>
-
-        </div>
-    )
 
     
 }

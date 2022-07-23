@@ -11,10 +11,11 @@ function Landing() {
         setTimeout(() => {
             setSliding("sliding")
             setNextScr(["click-transition","landing1","blob2"]);
-        },1000)
+        },500)
+
         setTimeout(() => {
             setNextScr(["click-transition","click-transition1","blob2"]);
-        },2000);
+        },1000);
     }
     return (
         <div>

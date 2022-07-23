@@ -1,7 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+![final product](https://github.com/jamal474/Quizton/blob/5066a5a32738abb6fc879d44e5ee98613c296d05/quizton.PNG)
 ## Available Scripts
 
 In the project directory, you can run:

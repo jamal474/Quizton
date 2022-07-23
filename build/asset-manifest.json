@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/quizton/static/css/main.e282dc21.css",
+    "main.js": "/quizton/static/js/main.087988c7.js",
+    "index.html": "/quizton/index.html",
+    "main.e282dc21.css.map": "/quizton/static/css/main.e282dc21.css.map",
+    "main.087988c7.js.map": "/quizton/static/js/main.087988c7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e282dc21.css",
+    "static/js/main.087988c7.js"
+  ]
+}

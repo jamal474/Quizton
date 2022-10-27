@@ -86,9 +86,13 @@ function Quiz() {
             />
         ));
 
-        
+        function reloadfunc()
+        {
+            window.location.reload();
+        }
         return (
             <div className = "quiz-p2" >
+                <div className = "header"><a onClick={reloadfunc}>Quizton</a></div>
                 <div className = "quiz-p1" id = "quiz-sheet">
                     {quest}
                 </div>

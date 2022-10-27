@@ -19,7 +19,7 @@ function Landing() {
     }
     return (
         <div>
-        <div className = {nextScr[0]}>
+        <div className = {nextScr[0]} id = "hero">
             <h1>Quizton</h1>
             <h2>A quiz to test your maths prowess</h2>
             <button 

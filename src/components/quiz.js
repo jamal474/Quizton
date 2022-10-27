@@ -1,13 +1,18 @@
 import React from 'react'
 import Ques from './ques'
+import {Link} from 'react-scroll'
 
 function Quiz() {
+    var d = new Date(); 
+    const currentYear = d.getFullYear(); 
 
     const [allQtn,setAllQtn] = React.useState([]);
     const [marks,setMarks] = React.useState([0,0,0,0,0,0,0,0,0,0,0]);
     const [temp,setTemp] = React.useState("");
     const [temp2,setTemp2] = React.useState("");
-    const url = "https://opentdb.com/api.php?amount=10&category=19&difficulty=medium&type=multiple&encode=base64";
+    const [mode,setMode] = React.useState("medium");
+    const url = "https://opentdb.com/api.php?amount=10&category=19&difficulty=" + mode +"&type=multiple&encode=base64";
+    console.log(url);
     React.useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -22,16 +27,15 @@ function Quiz() {
     }
     let [dt1,dt2] = Array.from(Object.values(allQtn));
     
-    
     if(dt2 !== undefined)
     {
 
     function option_select(event) 
     {
         let k = event.target.getAttribute("name");
-        if(dt2[k] != undefined)
+        if(dt2[k] !== undefined)
         {
-            if(marks[k] == 1)
+            if(marks[k] === 1)
             {
                 marks[10]--;
             }
@@ -51,6 +55,16 @@ function Quiz() {
         }
     function reload()
     {
+        setMode(prevmode => {
+            if(prevmode === "medium")
+            {
+                return "hard";
+            }
+            else 
+            {
+                return "medium";
+            }
+        })
         setTemp((Math.random()*100).toString());
         setMarks([0,0,0,0,0,0,0,0,0,0,0]);
         setAllQtn([]);
@@ -66,7 +80,7 @@ function Quiz() {
     )
     for(let k = 0;k<10;k++)
     {
-        for (let i = dt2[k].option.length - 1; i > 0; i--) 
+        for (let i = dt2[k]?.option.length - 1; i > 0; i--) 
         {
             const j = Math.floor(Math.random() * (i + 1));
             [dt2[k].option[i], dt2[k].option[j]] = [dt2[k].option[j], dt2[k].option[i]];
@@ -86,22 +100,19 @@ function Quiz() {
             />
         ));
 
-        function reloadfunc()
-        {
-            window.location.reload();
-        }
         return (
-            <div className = "quiz-p2" >
-                <div className = "header"><a onClick={reloadfunc}>Quizton</a></div>
+            <section className = "quizPage" id = "quizPage" >
+                <div className = "header"><Link to = "App" spy={true} smooth={true} offset={-60} duration={500}>Quizton</Link></div>
                 <div className = "quiz-p1" id = "quiz-sheet">
                     {quest}
                 </div>
                 <div id = "popup" >
                     <h2 className = {temp2}>You scored {marks[10]}/10 correct answers</h2>
-                    <button onClick={reload}>Play again</button>
+                    <Link to="quizPage" spy={true} smooth={true} offset={-60} duration={500} onClick = {reload} className = "playAgain">Play again</Link>
                 </div>
                 <button className = "check-answer" onClick={checkAnswer}>Check answers</button>
-            </div>
+                <div className = "rights">Made By Md Shabbir Jamal &copy; {currentYear} All Rights Reserved</div>
+            </section>
         )
     }
 

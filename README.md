@@ -1,9 +1,10 @@
-![final product](https://github.com/jamal474/Quizton/blob/5066a5a32738abb6fc879d44e5ee98613c296d05/quizton.PNG)
-## View Project
-[**Click Here**](https://quizton.mdshabbirjamal.one/)
-
+# 🏆Quizton
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8f0ed284-dc8d-49c0-935e-d783ba86d787/deploy-status)](https://app.netlify.com/sites/quizton/deploys)
 ## Description
 This is a Quiz website for **Mathematics General Knowledge**
+
+## View Project
+[**Click Here**](https://quizton.mdshabbirjamal.one/)
 
 ## Details
 1. [**ReactJS**](https://reactjs.org/) was used to create this project

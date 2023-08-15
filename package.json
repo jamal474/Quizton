@@ -18,6 +18,8 @@
 
     "buffer": "^6.0.3",
 
+    "decode-uri-component": "^0.4.1",
+
     "react": "^18.2.0",
 
     "react-dom": "^18.2.0",
@@ -80,7 +82,9 @@
 
   "devDependencies": {
 
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+
+    "react-router-dom": "^6.15.0"
 
   }
 

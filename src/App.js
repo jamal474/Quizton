@@ -1,14 +1,18 @@
 import Landing from './components/landing'
 import Quiz from './components/quiz'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Landing/>
-      <div className = "other">
-      <Quiz/>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+            <Route path="/" element={<Landing/>}/>
+            <Route path="quiz" element={<Quiz/>}/>
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
+    
   );
 }
 

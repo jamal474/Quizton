@@ -9,4 +9,5 @@ This is a Quiz website for **Mathematics General Knowledge**
 ## Details
 1. [**ReactJS**](https://reactjs.org/) was used to create this project
 2. Question data is obtained form [Open Trivia Database](https://opentdb.com/)
+3. Uses token gernerated by opentdb to access new questions each time from its database.
 

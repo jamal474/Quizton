@@ -29,7 +29,7 @@ function Quiz() {
     }
 
     //size of one questions page
-    const size = 5;
+    const size = 10;
     //list of all the questions fetched in one request turn
     const [allQtn, setAllQtn] = useState([]);
     //Keeps marks of all questions (index 0), and total at index 10

@@ -188,7 +188,7 @@ if (allQtn !== undefined) {
                 <Link to="/quiz/mathematics" className="catElement">Maths</Link>
                 <Link to="/quiz/sports" className="catElement">Sports</Link>
                 <Link to="/quiz/history" className="catElement">History</Link>
-                <Link to="/quiz/animal" className="catElement">Animals</Link>
+                <Link to="/quiz/animals" className="catElement">Animals</Link>
             </div>
             <div className="quiz-p1" id="quiz-sheet">
                 {quest}

@@ -1,13 +1,13 @@
 import React from 'react'
 import decodeUriComponent from 'decode-uri-component';
+import "../styles/question.css"
 
 function Ques(props) 
 {
     const inputElement = React.useRef("");
-    const [stAns,setStAns] = React.useState(["op0","op1","op2","op3"]);
+    const [stAns,setStAns] = React.useState(props.initmarks);
     function caller(event)
     {
-        console.log(event.target.className[2]);
         selectedOptionClassChange(event.target.className[2]);
         props.updateMarks(event,parseInt(event.target.className[2]));
     }
@@ -15,7 +15,6 @@ function Ques(props)
     function selectedOptionClassChange(et) 
     {
         let temp = parseInt(et);
-        console.log("id change : ",temp)
         let arr = [];
         for(let i = 0; i < 4;i++)
         {
@@ -38,7 +37,7 @@ function Ques(props)
     }
     return (
         <section className = "questionSection">
-            <h1 className = "question">({props.id+1}) : {decode(props.question)}</h1>
+            <h1 className = "question">{props.id+1} - {decode(props.question)}</h1>
             <div className = "option">
                 <div className = {stAns[0]} onClick = {caller} name = {props.id} value = {decode(props.option[0])}>{decode(props.option[0])}</div>
                 <div className = {stAns[1]} onClick = {caller} name = {props.id} value = {decode(props.option[1])}>{decode(props.option[1])}</div>

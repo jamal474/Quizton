@@ -1,0 +1,17 @@
+.nfound{
+    display : flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.notfound-pic{
+    width : 50vw;
+}
+
+.notfound-404{
+    font-family: unbounded;
+    font-size : 4vh;
+    font-weight: 600;
+    color : red;
+}
